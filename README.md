@@ -2,6 +2,9 @@
 
 Este repositorio contiene el workflow de n8n para un "Super Agente" conversacional multicanal integrado con Go High Level (GHL). El agente utiliza un sistema de **Retrieval-Augmented Generation (RAG)** para responder preguntas basándose en una base de conocimiento propia, y es capaz de gestionar entradas de texto, audio e imágenes.
 
+![Vista general del workflow de n8n](assets/workflow-overview.png)
+
+
 ---
 
 ## 🚀 Sección 0: Setup del Entorno n8n (VPS Recomendado)
@@ -86,9 +89,9 @@ Para que este workflow funcione, necesitarás cuentas y credenciales para los si
 
 Aunque este workflow está construido con **MongoDB Atlas**, no es una base de datos vectorial *dedicada*. Para mayor velocidad, escalabilidad y mejores capacidades de búsqueda semántica, te recomiendo considerar estas alternativas (requerirá modificar el workflow):
 
-* **Pinecone:**  La opción líder del mercado. Es una base de datos vectorial gestionada, increíblemente rápida y fácil de integrar. n8n tiene nodos nativos para Pinecone.
-* **Supabase (con pgvector):**  Si prefieres una solución "todo en uno" (Base de datos SQL, Auth, Storage, y Vectorial), Supabase es excelente. Usa la extensión `pgvector` sobre PostgreSQL.
-* **Qdrant:**  Una base de datos vectorial muy potente y popular. Ofrece una nube gestionada o puedes auto-hospedarla (incluso en EasyPanel junto a n8n). n8n tiene nodos nativos.
+* **Pinecone:** La opción líder del mercado. Es una base de datos vectorial gestionada, increíblemente rápida y fácil de integrar. n8n tiene nodos nativos para Pinecone.
+* **Supabase (con pgvector):** Si prefieres una solución "todo en uno" (Base de datos SQL, Auth, Storage, y Vectorial), Supabase es excelente. Usa la extensión `pgvector` sobre PostgreSQL.
+* **Qdrant:** Una base de datos vectorial muy potente y popular. Ofrece una nube gestionada o puedes auto-hospedarla (incluso en EasyPanel junto a n8n). n8n tiene nodos nativos.
 * **Weaviate:** Otra base de datos vectorial nativa de código abierto, muy robusta y con excelentes características de búsqueda. También tiene nodos nativos en n8n.
 
 **Para adaptar el workflow:** Deberás reemplazar los nodos `MongoDB Vector Store Inserter` y `MongoDB Vector Search` por los nodos correspondientes de la nueva base de datos (ej. `Pinecone`, `Qdrant`, etc.).
